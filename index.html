@@ -1,9 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Valentine</title>
-  </head>
-  <body>
-    <h1>Loading love… ❤️</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine? 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      max-width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      color: #ff4d6d;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 0.8rem 1.6rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.05);
+    }
+
+    #noBtn {
+      background: #ccc;
+      position: absolute;
+      left: 55%;
+      top: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 16px;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? 💕</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 🙃</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const card = document.getElementById("card");
+
+    const noTexts = [
+      "No 🙃",
+      "Are you sure?",
+      "Think again 😏",
+      "Wrong choice",
+      "Nice try",
+      "Still no?",
+      "Absolutely not",
+      "Okay this is awkward"
+    ];
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 80 - 40;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+      const randomText = noTexts[Math.floor(Math.random() * noTexts.length)];
+      noBtn.textContent = randomText;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      card.innerHTML = `
+        <h1>YAY 💘</h1>
+        <p>Thank you for making me the happiest person ever.</p>
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Happy celebration">
+      `;
+    });
+  </script>
+
+</body>
 </html>
